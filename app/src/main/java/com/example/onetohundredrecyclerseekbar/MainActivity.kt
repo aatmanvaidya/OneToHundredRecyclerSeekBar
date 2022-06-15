@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     private fun createDataSet(): ArrayList<NumberData> {
         val list = ArrayList<NumberData>()
         for (i in 1..100) {
-            list.add(NumberData(i,i))
+            list.add(NumberData(i,i,i))
         }
         Log.d("list_for_loop_data", list.toString())
         return list

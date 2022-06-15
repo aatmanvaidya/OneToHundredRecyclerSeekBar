@@ -13,11 +13,23 @@
         android:padding="10dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
+    <TextView
+        android:id="@+id/thumb_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="temp"
+        android:layout_gravity="start"
+        android:layout_marginBottom="28dp"
+        android:background="#ffff00"/>
+
     <SeekBar
         android:id="@+id/seek_bar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:padding="10dp"
+        android:progressBackgroundTint="@android:color/holo_red_dark"
+        android:progressTint="@color/purple_700"
+        android:thumbTint="@color/white"
         />
 </LinearLayout>

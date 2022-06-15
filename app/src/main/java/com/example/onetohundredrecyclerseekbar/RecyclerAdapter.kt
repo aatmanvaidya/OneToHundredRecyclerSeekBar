@@ -41,11 +41,12 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     class NumberViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val numDisplay: TextView = itemView.text
         private val seekShow: SeekBar = itemView.seek_bar
-
+        private val thumbText: TextView = itemView.thumb_text
 
         fun bind(numData: NumberData) {
             numDisplay.text = (numData.number).toString()
             seekShow.progress = numData.seekBar!!
+            thumbText.text = (numData.thumbPopText).toString()
 
             seekShow.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
 
@@ -60,6 +61,12 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                             if (value != null) {
                                 numData.seekBar = value
                             }
+                            thumbText.text = newNumber.toString()
+                            numData.thumbPopText = newNumber
+                            val width: Int = seekBar!!.width - seekBar!!.paddingLeft - seekBar!!.paddingRight
+                            val displacement = width * (seekBar.progress/seekBar.max.toFloat())
+                            thumbText.translationX = displacement
+
                         }
                     }
 
