@@ -45,8 +45,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         fun bind(numData: NumberData) {
             numDisplay.text = (numData.number).toString()
-//            seekShow.progress = 1
-//            seekShow.max = 100
+            seekShow.progress = numData.seekBar!!
 
             seekShow.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
 
