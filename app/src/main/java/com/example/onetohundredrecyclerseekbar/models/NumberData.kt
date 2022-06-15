@@ -1,4 +1,4 @@
 package com.example.onetohundredrecyclerseekbar.models
 
-data class NumberData(var number: Int) {
+data class NumberData(var number: Int, var seekBar: Int?) {
 }

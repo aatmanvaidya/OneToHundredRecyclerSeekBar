@@ -14,11 +14,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        initRecyclerView()
+        addDataSet()
     }
     private fun createDataSet(): ArrayList<NumberData> {
         val list = ArrayList<NumberData>()
         for (i in 1..100) {
-            list.add(NumberData(i))
+            list.add(NumberData(i,i))
         }
         Log.d("list_for_loop_data", list.toString())
         return list
