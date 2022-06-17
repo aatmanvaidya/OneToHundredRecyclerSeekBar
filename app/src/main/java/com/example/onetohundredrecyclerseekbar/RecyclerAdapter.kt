@@ -8,7 +8,9 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onetohundredrecyclerseekbar.models.NumberData
+import com.google.android.material.slider.Slider
 import kotlinx.android.synthetic.main.list_item.view.*
+import java.util.*
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var items: List<NumberData> = ArrayList()
@@ -40,6 +42,38 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class NumberViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val numDisplay: TextView = itemView.text
+        private val seekShow = itemView.seek_bar
+
+        fun bind(numData: NumberData) {
+            numDisplay.text = (numData.number).toString()
+            seekShow.value = numData.number.toFloat()
+
+            seekShow.addOnSliderTouchListener(object : Slider.OnSliderTouchListener{
+                override fun onStartTrackingTouch(slider: Slider) {
+                }
+
+                override fun onStopTrackingTouch(slider: Slider) {
+                }
+            })
+            seekShow.addOnChangeListener{slider, value, fromUser ->
+                val newNumber = seekShow.value.toInt()
+                numDisplay.text = newNumber.toString()
+                numData.number = newNumber
+
+//                slider.setLabelFormatter{ value: Float
+//                    val format = value.toString()
+//                    format.format(value.toInt())
+//
+//                }
+            }
+
+        }
+    }
+}
+
+/*
+   class NumberViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val numDisplay: TextView = itemView.text
         private val seekShow: SeekBar = itemView.seek_bar
         private val thumbText: TextView = itemView.thumb_text
 
@@ -65,8 +99,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                             numData.thumbPopText = newNumber
                             val width: Int = seekBar!!.width - seekBar!!.paddingLeft - seekBar!!.paddingRight
                             val displacement = width * (seekBar.progress/seekBar.max.toFloat())
+                            seekBar.setPadding(15,0,15,15)
                             thumbText.translationX = displacement
-
                         }
                     }
 
@@ -83,3 +117,4 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 }
+ */

@@ -2,34 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_marginTop="20dp">
 
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="Hello"
+        android:hint="@string/hello"
         android:padding="10dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-    <TextView
-        android:id="@+id/thumb_text"
+    <com.google.android.material.slider.Slider
+        android:id="@+id/seek_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="temp"
-        android:layout_gravity="start"
-        android:layout_marginBottom="28dp"
-        android:background="#ffff00"/>
-
-    <SeekBar
-        android:id="@+id/seek_bar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:progressBackgroundTint="@android:color/holo_red_dark"
-        android:progressTint="@color/purple_700"
-        android:thumbTint="@color/white"
+        android:valueFrom="1"
+        android:valueTo="100"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        app:tickColor="#0000FF"
         />
 </LinearLayout>
