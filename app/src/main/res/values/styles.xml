@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Tooltip" parent="Widget.MaterialComponents.Tooltip">
+        <item name="backgroundTint">@android:color/holo_blue_dark</item>
+        <item name="labelStyle">@id/rectangles</item>
+    </style>
+</resources>

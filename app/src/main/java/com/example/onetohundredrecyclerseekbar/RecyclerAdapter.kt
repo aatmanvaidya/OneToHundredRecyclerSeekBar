@@ -60,11 +60,11 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 numDisplay.text = newNumber.toString()
                 numData.number = newNumber
 
-//                slider.setLabelFormatter{ value: Float
-//                    val format = value.toString()
-//                    format.format(value.toInt())
-//
-//                }
+                slider.setLabelFormatter{ value: Float ->
+                    val format = value.toInt().toString()
+                    format.format(value)
+
+                }
             }
 
         }

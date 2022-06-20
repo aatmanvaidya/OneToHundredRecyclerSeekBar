@@ -24,5 +24,6 @@
         android:layout_gravity="center"
         android:layout_margin="15dp"
         app:tickColor="#0000FF"
+        app:labelStyle="@style/Tooltip"
         />
 </LinearLayout>
